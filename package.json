@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{js,vue,css}\""
+    "format": "prettier --write \"src/**/*.{js,vue,css}\"",
+    "deploy": "npm run build && cd dist && git init && git checkout -b gh-pages && git add -A && git commit -m 'deploy' && git push -f git@github.com:gecleanme/em-sim.git gh-pages && cd .."
   },
   "dependencies": {
     "three": "^0.170.0",

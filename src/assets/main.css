@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-bolt-black: #222223;
+  --color-bolt-sage: #d0debb;
+  --color-bolt-teal: #004f59;
+  --color-bolt-white: #ffffff;
+  --color-bolt-ivory: #ebebe4;
+  --color-bolt-amber: #f6b700;
+
+  --color-surface: #1d252d;
+  --color-surface-raised: #263040;
+  --color-surface-hover: #2f3d4f;
+  --color-border: #354455;
+  --color-border-bright: #4a6070;
+
+  --color-text-primary: #ebebe4;
+  --color-text-secondary: #9aab8f;
+  --color-text-muted: #5f7060;
+
+  --color-accent: #d0debb;
+  --color-accent-bright: #f6b700;
+  --color-e-field: #e87461;
+  --color-h-field: #5ba8c8;
+
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-bolt-black);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-border);
+  outline: none;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-surface);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+input[type='range']::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-surface);
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 20;
+  font-size: 18px;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}

@@ -43,10 +43,10 @@
       <FieldControlPanel
         :show-e-field="showEField"
         :show-h-field="showHField"
-        :visualization-mode="vizMode"
+        :viz-mode="vizMode"
         @toggle-e-field="toggleEField"
         @toggle-h-field="toggleHField"
-        @set-mode="setVizMode"
+        @set-mode="setVizMode($event)"
         @set-threshold="fieldViz.setIntensityThreshold"
       />
       <WaveControlPanel

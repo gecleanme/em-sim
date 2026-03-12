@@ -12,7 +12,7 @@ export function useClippingPlane(renderer) {
   const helper = shallowRef(null)
   const enabled = ref(false)
   const axis = ref('x')
-  const position = ref(3)
+  const position = ref(-3)
   const flipped = ref(false)
 
   function init() {

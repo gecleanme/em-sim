@@ -81,7 +81,7 @@
 
     <!-- Bottom Toolbar -->
     <div
-      class="hidden absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5 rounded-xl border border-border/40 bg-surface/80 p-1 backdrop-blur-md"
+      class="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 items-center gap-0.5 rounded-xl border border-border/40 bg-surface/80 p-1 backdrop-blur-md"
     >
       <ToolbarBtn icon="grid_on" label="Grid" :active="grid.visible.value" @click="grid.toggle()" />
       <ToolbarBtn icon="blur_on" label="Ghost" :active="ghostActive" @click="toggleGhost" />
@@ -146,14 +146,14 @@ const hoveredPartName = ref('')
 
 onMounted(async () => {
   try {
-    const gltf = await load('/models/antenna.glb')
+    const gltf = await load(`${import.meta.env.BASE_URL}models/antenna.glb`)
     antennaModel = gltf.scene
   } catch (err) {
     console.warn('put a .glb at public/models/')
   }
 
   if (antennaModel) {
-    antennaModel.scale.setScalar(1) // adjust per model. TODO: add UI input
+    antennaModel.scale.setScalar(1.5) // adjust per model. TODO: add UI input
     centerModel(antennaModel)
     frameCameraOnModel(antennaModel, camera.value, controls.value)
     scene.value.add(antennaModel)

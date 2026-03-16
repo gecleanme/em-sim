@@ -48,6 +48,8 @@
         @toggle-h-field="toggleHField"
         @set-mode="setVizMode($event)"
         @set-threshold="fieldViz.setIntensityThreshold"
+        @set-scale="setScale($event)"
+        @set-rotation="setRotation($event)"
       />
       <WaveControlPanel
         :frequency="wave.frequency.value"
@@ -230,6 +232,14 @@ function rebuildWave() {
 function setVizMode(mode) {
   vizMode.value = mode
   loadFieldData()
+}
+
+function setScale(scale) {
+  if (antennaModel) antennaModel.scale.setScalar(scale)
+}
+
+function setRotation(rotation) {
+  if (antennaModel) antennaModel.rotation.y= rotation
 }
 //function onComponentToggle(cat) { compToggle.toggleComponent(cat); if (antennaModel) compToggle.applyVisibility(antennaModel) }
 //function onShowAllComponents() { compToggle.showAll(); if (antennaModel) compToggle.applyVisibility(antennaModel) }

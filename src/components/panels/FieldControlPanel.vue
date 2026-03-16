@@ -32,7 +32,13 @@
       </div>
     </div>
 
-    <SliderControl label="Min Intensity" :min="0" :max="1" :step="0.01" v-model="localThreshold" />
+    <SliderControl label="Min Intensity" :min="0" :max="1" :step="0.01" v-model.number="localThreshold" />
+
+    <SliderControl label="Model Scale" :min="1" :max="5" :step="0.10" v-model.number="localScale" />
+
+    <SliderControl label="Model Rotation" :min="0" :max="6.28" :step="0.01" v-model.number="localRotation" />
+
+
   </PanelSection>
 </template>
 
@@ -47,7 +53,7 @@ defineProps({
   vizMode: { type: String, default: 'vectors' },
 })
 
-const emit = defineEmits(['toggle-e-field', 'toggle-h-field', 'set-mode', 'set-threshold'])
+const emit = defineEmits(['toggle-e-field', 'toggle-h-field', 'set-mode', 'set-threshold', 'set-scale', 'set-rotation'])
 
 const modes = [
   { value: 'vectors', label: 'Arrows' },
@@ -57,4 +63,11 @@ const modes = [
 
 const localThreshold = ref(0)
 watch(localThreshold, (v) => emit('set-threshold', v))
+
+const localScale = ref(1)
+watch(localScale, (v) => emit('set-scale', v))
+
+
+const localRotation = ref(0)
+watch(localRotation, (v) => emit('set-rotation', v))
 </script>
